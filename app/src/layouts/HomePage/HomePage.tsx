@@ -6,7 +6,6 @@ export const HomePage = () => {
     return (
         <>
             <ExploreTopBooks/>
-
             <Heros/>
         </>
     );

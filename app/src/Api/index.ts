@@ -12,7 +12,7 @@ export const responseData = {
     },
     "book2": {
         "id": "2",
-        "title": "JavaScript - The Good Parts",
+        "title":"JavaScript - The Good Parts",
         "author": "Jane Doe",
         "description": "Unearthing the excellence in JavaScript.",
         "copies": 15,

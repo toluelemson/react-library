@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  react-app:
+    build:
+      context: .
+      dockerfile: Dockerfile-client
+    ports:
+      - "8080:80"
+    depends_on:
+      - api-server
+
+  api-server:
+    build:
+      context: .
+      dockerfile: Dockerfile-server
+    ports:
+      - "8081:8081"
+    environment:
+      - NODE_ENV=production
