@@ -41,25 +41,25 @@ export const SearchBooksPage = () => {
         });
     };
 
-    const fetchBooks = async () => {
-        setIsLoading(true);
-        try {
-            const responseData = await fetchBooksData();
-            const loadedBooks = Object.values(responseData)
-            setBooks(loadedBooks);
-            setSearchResults(loadedBooks); // Set initial search results
-            updatePagination(loadedBooks.length);
-        } catch (error) {
-            console.error('Fetch Books Error:', error);
-            setHttpError('An error occurred while fetching book data.');
-        } finally {
-            setIsLoading(false);
-        }
-    };
 
     useEffect(() => {
+        const fetchBooks = async () => {
+            setIsLoading(true);
+            try {
+                const responseData = await fetchBooksData();
+                const loadedBooks = Object.values(responseData)
+                setBooks(loadedBooks);
+                setSearchResults(loadedBooks); // Set initial search results
+                updatePagination(loadedBooks.length);
+            } catch (error) {
+                console.error('Fetch Books Error:', error);
+                setHttpError('An error occurred while fetching book data.');
+            } finally {
+                setIsLoading(false);
+            }
+        };
         fetchBooks();
-    });
+    },[]);
 
     const handleSearch = useCallback((searchValue: string) => {
         const filteredResults = books.filter(item =>
